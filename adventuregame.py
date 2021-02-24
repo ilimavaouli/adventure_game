@@ -1,22 +1,26 @@
 import time
 import random
-
-
+all_enemies = ['fairie', 'ogre', 'witch', 'pirate', 'giant']
+all_weapons = ['sword', 'blade', 'katana']
 
 def pause(a):
     print(a)
     time.sleep(2)
 
 def intro():
+    
+    global enemy
+    global weapon
+    enemy = print(random.choice(all_enemies))
+    weapon = print(random.choice(all_weapons))
     pause('You find yourself standing in an open field, filled with grass and yellow wildflowers.')
-    pause('Rumor has it that a wicked fairie is somewhere around here, and has been terrifying the nearby village.')
-    x=['dragon', 'witch', 'fairie', 'ogre', 'pirate']
-    enemy=print(random.choice(x))
+    pause(f'Rumor has it that a wicked {enemy} is somewhere around here, and has been terrifying the nearby village.')
+   
 
 def restartgame():
     while True:
         while True:
-            response=input('Would you like to play again? (y/n)')
+            response = input('Would you like to play again? (y/n)')
             pause(response)
             if 'y' in response:
                 pause('Excellent! Restarting the game ...')
@@ -35,10 +39,10 @@ def field():
     pause('What would you like to do?')
     while True:
         while True:
-            response=input('Please enter 1 or 2')
+            response = input('Please enter 1 or 2')
             pause(response)
             if '1' in response:
-                housewithoutsword()
+                housewithoutweapon()
                 break
             elif '2' in response:
                 cave()
@@ -56,7 +60,7 @@ def fieldaftercave():
             response=input('Please enter 1 or 2')
             pause(response)
             if '1' in response:
-                housewithsword()
+                housewithweapon()
                 break
             elif '2' in response:
                 cave2()
@@ -65,15 +69,15 @@ def fieldaftercave():
                 pause('please enter (1) or (2)')
                 break
 
-def housewithoutsword():
+def housewithoutweapon():
     pause('You approach the door of the house')
-    pause('You are about to knock when the door opens and out steps a (enemy)')
-    pause('eep this is the print (enemy) house')
-    pause('The (enemy) attacks you')
+    pause(f'You are about to knock when the door opens and out steps a {enemy}')
+    pause(f'eep this is the print {enemy} house')
+    pause(f'The {enemy} attacks you')
     pause('You feel a bit under-prepared for this, what with only having a tiny dagger')
     while True:
         while True:
-            response=input('Would you like to (1) fight or (2) run away?')
+            response = input('Would you like to (1) fight or (2) run away?')
             pause(response)
             if '1' in response:
                 pause('You do your best ...')
@@ -94,7 +98,7 @@ def cave():
     pause('You peer cautiously into the cave.')
     pause('It turns out to be only a very small cave.')
     pause('Your eye catches a glint of metal behind some rock.')
-    pause('You have found the magical Sword of Ogoroth!')
+    pause(f'You have found the magical {weapon} of Ogoroth!')
     pause('You discard your silly old dagger and take the sword with you.')
     pause('You walk back to the field')
     fieldaftercave()
@@ -106,20 +110,20 @@ def cave2():
     field()
 
 
-def housewithsword():
+def housewithweapon():
     pause('You approach the house')
-    pause('You are about to knock when the door opens and out steps a (enemy).')
-    pause('Eep! This is the (enemy) house')
-    pause('The (enemy) attacks you')
+    pause(f'You are about to knock when the door opens and out steps a {enemy}.')
+    pause(f'Eep! This is the {enemy} house')
+    pause(f'The {enemy} attacks you')
     while True:
         while True:
-            response=input('Would you like to (1) fight or (2) run away?')
+            response = input('Would you like to (1) fight or (2) run away?')
             pause(response)
             if '1' in response:
-                pause('As the (enemy) moves to attack you, you unsheath your new sword. ')
-                pause('The sword of Ogoroth shines brightly in your hand as you brace yourself for the attack.')
-                pause('But the (enemy) takes one look at your shiny new toy and runs away!')
-                pause('You have rid the town of the (enemy). You are victorious!')
+                pause(f'As the {enemy} moves to attack you, you unsheath your new {weapon}. ')
+                pause(f'The {weapon} of Ogoroth shines brightly in your hand as you brace yourself for the attack.')
+                pause(f'But the {enemy} takes one look at your shiny new toy and runs away!')
+                pause(f'You have rid the town of the {enemy}. You are victorious!')
                 restartgame()
                 break
             elif '2' in response:
