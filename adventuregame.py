@@ -121,7 +121,7 @@ def cave2():
     pause("You've been here before, and gotten all the good stuff."
           " It's just an empty cave now.")
     pause("You walk back out to the field")
-    field()
+    fieldaftercave()
 
 
 def housewithweapon():
