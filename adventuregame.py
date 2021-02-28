@@ -126,7 +126,7 @@ def cave2():
 
 def housewithweapon():
     pause('You approach the house')
-    pause('You are about to knock when the'
+    pause('You are about to knock when the '
           f'door opens and out steps a {enemy}.')
     pause(f'Eep! This is the {enemy} house')
     pause(f'The {enemy} attacks you')
